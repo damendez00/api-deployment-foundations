@@ -1,0 +1,50 @@
+Build a minimal Python API for a fictional **Support Triage Helper** using FastAPI.
+
+Requirements:
+
+1. Create a `GET /health` endpoint that returns:
+
+   ```json
+   {"status": "ok"}
+   ```
+
+2. Create one `POST /triage-ticket` endpoint.
+
+   * Accept JSON with a required `ticket_text` field.
+   * `ticket_text` must be a non-empty string.
+   * If `ticket_text` is missing or empty, return HTTP 400 with:
+
+     ```json
+     {"detail": "ticket_text is required"}
+     ```
+
+3. For valid ticket text, perform simple keyword-based classification:
+
+   * If the text contains "damaged", classify it as `damaged_item`.
+   * If it contains "refund", classify it as `refund_request`.
+   * Otherwise classify it as `general_support`.
+   * Make the keyword matching case-insensitive.
+   * Return the category and a short summary.
+
+4. Use only fictional or sanitized ticket data. Do not use real customer information, credentials, or production services.
+
+5. Keep the implementation minimal and easy to understand. Use FastAPI and standard Python libraries unless another dependency is necessary.
+
+6. Provide:
+
+   * The complete Python source code.
+   * The `pip` installation command.
+   * The command to run the API locally with Uvicorn.
+   * A `curl` command to test `/health`.
+   * A `curl` command for a successful `/triage-ticket` request.
+   * A `curl` command demonstrating the validation error.
+
+7. Include a short request/response contract documenting:
+
+   * HTTP method
+   * endpoint
+   * request JSON
+   * successful response
+   * validation error response
+
+Do not deploy the API publicly and do not use real credentials or production data.
